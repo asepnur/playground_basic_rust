@@ -4,10 +4,13 @@ pub struct Rectangle{
     height: i32,
 }
 
-pub fn new(width: i32, height: i32) -> Rectangle {
-    Rectangle{width, height}
-}
 impl Rectangle {
+    pub fn new(width: i32, height: i32) -> Rectangle {
+        Rectangle{width, height}
+    }
+    pub fn new_squere(size: i32) -> Rectangle {
+        Rectangle{width:size, height: size}
+    }
     pub fn area(&self) -> i32{
         self.height * self.width
     }
