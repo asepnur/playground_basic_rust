@@ -7,7 +7,10 @@ pub struct NewsArticle{
 pub trait Summary {
     fn summarize(&self) -> String;
     // actually this is bad design please dont do this in production
-    fn print_summarize(&self, s:String);
+    // example to apply default method
+    fn print_summarize(&self, s:String){
+        println!("default summary: {}", s);
+    }
 }
 impl NewsArticle {
     pub fn new(headline:String, location:String, author: String, content:String) -> NewsArticle {
@@ -17,9 +20,6 @@ impl NewsArticle {
 impl Summary for NewsArticle {
     fn summarize(&self) -> String {
         format!("{}, by {} ({})", self.headline, self.author, self.location)
-    }
-    fn print_summarize(&self, s:String){
-        println!("summarize of your articel: {}",s);
     }
 }
 
@@ -41,7 +41,4 @@ impl Summary for Tweet{
      fn summarize(&self) -> String{
          format!("{}: {}", self.username, self.content)
      }
-     fn print_summarize(&self, s:String){
-        println!("summarize of your articel: {}",s);
-    }
 }
