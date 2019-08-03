@@ -1,4 +1,5 @@
 extern crate playground_basic_rust;
+// dont use this in production
 use self::playground_basic_rust::*;
 use self::rectangle::Rectangle;
 fn main(){
