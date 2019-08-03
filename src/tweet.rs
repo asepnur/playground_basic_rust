@@ -12,6 +12,13 @@ pub trait Summary {
         println!("default summary: {}", s);
     }
 }
+// returning type of trat
+pub fn new_summary_tweet(username: String, content: String, reply: bool, retweet: bool) -> impl Summary {
+    Tweet{username, content, reply, retweet}
+}
+pub trait Display {
+    fn display(&self);
+}
 impl NewsArticle {
     pub fn new(headline:String, location:String, author: String, content:String) -> NewsArticle {
         NewsArticle{headline, location, author, content}
@@ -41,4 +48,10 @@ impl Summary for Tweet{
      fn summarize(&self) -> String{
          format!("{}: {}", self.username, self.content)
      }
+}
+
+impl Display for Tweet{
+    fn display(&self){
+        println!("{} : {}", self.username, self.content);
+    }
 }
