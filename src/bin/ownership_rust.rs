@@ -38,4 +38,39 @@ fn main(){
     };
     let o:Foo = f;
     println!("f: {:?}, o:{:?}", f, o);
+
+    // owneship in function scope
+    let s = String::from("its me depelover");
+    take_ownership(s);
+    // code bellow will produce error if you try to uncomment
+    // println!("s value is {}", s);
+
+    let i:i32 = 100;
+    makes_copy(i);
+    // the code bellow not produce error because i is i32 (fixed/known size) it should be go to stack
+    println!("i value is {}", i);
+
+    let ss = give_ownership();
+    println!("ss value is {}", ss);
+    
+    let xx = takes_and_gives_back(ss);
+    println!("xx value is {}", xx);
+    // trying to use ss anymore will produce an error
+    // because ownership of s's has given to xx
+}
+
+// ownership using function
+fn take_ownership(s: String){
+    println!("value {} is taken", s);
+}
+
+fn makes_copy(some_integer: i32){
+    println!("value {} is copied", some_integer);
+}
+
+fn give_ownership() -> String {
+    String::from("value from give_ownership function")
+}
+fn takes_and_gives_back(s: String) -> String{
+    s
 }

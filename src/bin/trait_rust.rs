@@ -9,7 +9,7 @@ use crate::playground_basic_rust::tweet::Display;
 
 fn main(){
     let article_1 = tweet::NewsArticle::new(
-        String::from("healine of article"), 
+        String::from("headline of article"), 
         String::from("actual location"), 
         String::from("me as author"), 
         String::from("the content is length ...")
