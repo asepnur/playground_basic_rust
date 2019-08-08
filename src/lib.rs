@@ -4,3 +4,4 @@ pub mod coin;
 pub mod options_value;
 pub mod restaurant;
 pub mod tweet;
+pub mod circle;
